@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import './App.css'
+import 'materialize-css/dist/css/materialize.min.css'
+import Breeds from './components/cat/Breeds'
+import Breed from './components/cat/Breed'
+import BreedState from './context/breed/BreedState'
+import Navbar from './components/layout/Navbar'
+import SearchImage from './components/cat/SearchImage'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BreedState>
+      <Router>
+        <Navbar />
+        <div className="container">
+          <Switch>
+            <Route exact path="/" component={Breeds} />
+            <Route exact path="/breed/:breed" component={Breed} />
+            <Route exact path="/image" component={SearchImage} />
+          </Switch>
+        </div>
+      </Router>
+    </BreedState>
+  )
 }
 
-export default App;
+export default App

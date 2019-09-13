@@ -1,0 +1,3 @@
+export const GET_ALL_BREEDS = 'GET_ALL_BREEDS'
+export const GET_SINGLE_BREED = 'GET_SINGLE_BREED'
+export const GET_IMAGES = 'GET_IMAGES'
