@@ -61,7 +61,7 @@ const BreedState = props => {
       }
     }
     try {
-      const res = await axios.get('/breeds', config)
+      const res = await axios.get('/api/breeds', config)
       dispatch({
         type: GET_ALL_BREEDS,
         payload: res.data
@@ -77,7 +77,7 @@ const BreedState = props => {
       }
     }
     try {
-      const res = await axios.get(`/breeds/search?q=${breed}`, config)
+      const res = await axios.get(`/api/breeds/search?q=${breed}`, config)
       dispatch({
         type: GET_SINGLE_BREED,
         payload: res.data
@@ -98,11 +98,9 @@ const BreedState = props => {
       }
     }
     const res = await axios.get(
-      `/images/search?size=${size}&limit=${limit}&breed_id=${breed}&category_ids=${category}&order=RANDOM`,
+      `/api/images/search?size=${size}&limit=${limit}&breed_id=${breed}&category_ids=${category}&order=RANDOM`,
       config
     )
-    console.log(`/images/search?size=${size}&limit=${limit}&breed_id=${breed}`)
-    console.log(res.data)
     dispatch({
       type: GET_IMAGES,
       payload: res.data
