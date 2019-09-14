@@ -61,7 +61,7 @@ const BreedState = props => {
       }
     }
     try {
-      const res = await axios.get('/api/breeds', config)
+      const res = await axios.get('https://api.thecatapi.com/v1/breeds', config)
       dispatch({
         type: GET_ALL_BREEDS,
         payload: res.data
@@ -77,7 +77,10 @@ const BreedState = props => {
       }
     }
     try {
-      const res = await axios.get(`/api/breeds/search?q=${breed}`, config)
+      const res = await axios.get(
+        `https://api.thecatapi.com/v1/breeds/search?q=${breed}`,
+        config
+      )
       dispatch({
         type: GET_SINGLE_BREED,
         payload: res.data
@@ -98,7 +101,7 @@ const BreedState = props => {
       }
     }
     const res = await axios.get(
-      `/api/images/search?size=${size}&limit=${limit}&breed_id=${breed}&category_ids=${category}&order=RANDOM`,
+      `https://api.thecatapi.com/v1/images/search?size=${size}&limit=${limit}&breed_id=${breed}&category_ids=${category}&order=RANDOM`,
       config
     )
     dispatch({
